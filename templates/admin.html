@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Chatbot Intent Manager</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+<body>
+    <div class="admin-container">
+        <h1>Kontrol Respon</h1>
+        <table id="intentsTable">
+            <thead>
+                <tr>
+                    <th>TAG</th>
+                    <th>PERTANYAAN</th>
+                    <th>RESPON</th>
+                    <th>EDIT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data akan diisi secara dinamis oleh JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal untuk edit intent -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <h2>Edit Respon</h2>
+            <form id="editIntentForm">
+                <input type="hidden" id="editTag" name="tag">
+                
+                <div class="form-group">
+                    <label>TAG:</label>
+                    <div class="display-field" id="displayTag"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Pertanyaan:</label>
+                    <div class="display-field" id="displayPatterns"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="editResponses">Respon:</label>
+                    <textarea id="editResponses" name="responses" rows="8" required 
+                        placeholder="Masukkan respon yang diperbarui"></textarea>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="cancel-btn">Batal</button>
+                    <button type="submit" class="update-btn">Update Respon</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+</body>
+</html>
