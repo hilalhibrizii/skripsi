@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Kelola Respon Chatbot</title>
+    <link rel="stylesheet" href="static/css/admin.css">
+    <!-- Add these for proper markdown support -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</head>
+<body>
+    <div class="admin-container">
+        <a href="/jadwal-kuliah" class="control-btn matakuliah-btn">Kontrol Jadwal Kuliah</a> 
+        <h1>Kontrol Respon Chatbot</h1>
+        
+        <table id="intentsTable">
+            <thead>
+                <tr>
+                    <th>TAG</th>
+                    <th>PERTANYAAN (Contoh)</th>
+                    <th>RESPON (Pratinjau)</th>
+                    <th>EDIT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Content will be loaded by JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <h2>Edit Respon untuk Tag: <span id="displayTag"></span></h2>
+            <form id="editIntentForm">
+                <input type="hidden" id="editTag" name="tag">
+                
+                <div class="form-group">
+                    <label for="editResponses">Respon (Markdown Supported):</label>
+                    <div class="textarea-container">
+                        <button type="button" class="preview-toggle" id="previewToggle">Preview</button>
+                        <textarea id="editResponses" name="responses" rows="8" required 
+                            placeholder="Masukkan respon yang diperbarui (gunakan Markdown untuk formatting)"></textarea>
+                        <div id="markdownPreview" class="markdown-preview"></div>
+                    </div>
+                    <small style="color: #7a5a42; font-size: 0.85em;">
+                        Tips: Gunakan **bold**, *italic*, `code`, # Header, - list, dll. untuk formatting
+                    </small>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-btn">Batal</button>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="update-btn">Update Respon</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="static/js/admin.js"></script>
+</body>
+</html>

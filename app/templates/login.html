@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Admin</title>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Reset default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* General body styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #db892b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Container for the login form */
+        .login-container {
+            background-color: #c4a27b;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        /* Title styling */
+        h1 {
+            font-size: 2rem;
+            color: #333333;
+            margin-bottom: 20px;
+        }
+
+        /* Form styling */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            text-align: left; /* Align labels to the left */
+        }
+
+        /* Label styling */
+        label {
+            font-size: 0.9rem;
+            color: #555555;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        /* Input field styling */
+        input[type="text"],
+        input[type="password"] {
+            padding: 12px;
+            font-size: 1rem;
+            border: 1px solid #813e12;
+            border-radius: 8px;
+            transition: border-color 0.3s ease;
+            width: 100%;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #813e12;
+            outline: none;
+        }
+
+        /* Password field with eye icon */
+        .password-field {
+            position: relative;
+        }
+
+        .password-field i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1rem;
+            color: #9ca3af;
+            cursor: pointer;
+        }
+
+        /* Button styling */
+        button {
+            padding: 12px;
+            font-size: 1rem;
+            color: #ffffff;
+            background-color: #aa833a;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #2563eb;
+        }
+
+        /* Error messages styling */
+        ul {
+            list-style: none;
+            margin-top: 15px;
+            padding: 0;
+        }
+
+        li {
+            color: #ef4444;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Chatbot Admin</h1>
+        <form method="POST">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <div class="password-field">
+                <input type="password" id="password" name="password" required>
+                <i class="fa-solid fa-eye" id="togglePassword"></i>
+            </div>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <!-- Display error messages -->
+    
+    </div>
+
+    <script>
+        // Function to toggle password visibility
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordField = document.getElementById('password');
+
+        togglePassword.addEventListener('click', function () {
+            const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordField.setAttribute('type', type);
+
+            // Toggle eye icon between show and hide
+            this.classList.toggle('fa-eye');
+            this.classList.toggle('fa-eye-slash');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,323 @@
+/* admin.css - Enhanced Modern Brown Theme */
+
+/* General Styles */
+body {
+    
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f1ee;
+    margin: 0;
+    padding: 0;
+    color: #3a2c24;
+    line-height: 1.6; /* Ditambahkan untuk keterbacaan */
+}
+
+/* Perbaiki kelas container yang salah di HTML */
+.admin-container {
+    width: 90%;
+    margin: 30px auto;
+    background-color: #fff9f5;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    border: 1px solid #e0d6cc;
+}
+
+h1 {
+    text-align: center;
+    color: #5c3a21;
+    margin-bottom: 25px;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 12px;
+    font-size: 1.8em; /* Sedikit diperbesar untuk hierarki visual */
+}
+
+h1:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #8b5a2b, #d4a76a);
+    border-radius: 3px;
+}
+
+/* Table Styles */
+#intentsTable {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+}
+
+#intentsTable th {
+    background: linear-gradient(135deg, #6b4a2a, #8b5a2b);
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em; /* Sedikit diperbesar untuk keterbacaan */
+    padding: 16px 12px; /* Padding sedikit ditambah */
+    text-align: center;
+    letter-spacing: 0.5px; /* Ditambahkan untuk estetika */
+}
+
+#intentsTable td {
+    padding: 14px 12px; /* Sedikit lebih besar untuk kenyamanan */
+    text-align: left;
+    border-bottom: 1px solid #e8e1d9;
+    vertical-align: middle;
+    font-size: 0.95em; /* Ditambahkan untuk konsistensi */
+}
+
+/* Non-editable columns */
+#intentsTable td:first-child, 
+#intentsTable td:nth-child(2) {
+    background-color: #f9f5f1;
+    color: #5c4a3a;
+    user-select: none;
+}
+
+/* Editable column */
+#intentsTable td:nth-child(3) {
+    background-color: #fff;
+    color: #3a2c24;
+}
+
+#intentsTable tr:nth-child(even) {
+    background-color: #fbf7f3;
+}
+
+#intentsTable tr:hover {
+    background-color: #f3e9de;
+    transition: background-color 0.2s ease;
+}
+
+/* Edit button style */
+#intentsTable .edit-btn {
+    background: #8b5a2b;
+    color: white;
+    border: none;
+    padding: 8px 16px; /* Sedikit diperbesar */
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85em;
+    transition: all 0.2s;
+}
+
+#intentsTable .edit-btn:hover {
+    background: #9d6a3b;
+    transform: translateY(-1px); /* Efek subtle saat hover */
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(58, 44, 36, 0.7);
+    backdrop-filter: blur(3px);
+    animation: fadeIn 0.3s;
+}
+
+.modal-content {
+    background-color: #fff9f5;
+    margin: 5% auto; /* Margin sedikit diperbesar */
+    padding: 30px; /* Padding sedikit ditambah */
+    width: 60%;
+    max-width: 700px;
+    border-radius: 12px;
+    position: relative;
+    animation: slideDown 0.3s;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1); /* Shadow ditambah */
+}
+
+.close {
+    color: #8b5a2b;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    transition: color 0.2s, transform 0.2s; /* Ditambahkan transform */
+}
+
+.close:hover {
+    color: #5c3a21;
+    cursor: pointer;
+    transform: scale(1.1); /* Efek subtle saat hover */
+}
+
+/* Form Styles */
+#editIntentForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Gap sedikit diperbesar */
+}
+
+.form-group {
+    margin-bottom: 20px; /* Margin sedikit diperbesar */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #5c3a21;
+    font-size: 1em; /* Ditambahkan untuk konsistensi */
+}
+
+.display-field {
+    background-color: #f9f5f1;
+    border: 1px solid #e0d6cc;
+    border-radius: 6px;
+    padding: 12px;
+    min-height: 30px; /* Sedikit diperbesar */
+    color: #5c4a3a;
+    white-space: pre-wrap;
+    overflow-y: auto;
+    max-height: 150px;
+}
+
+#editResponses {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d4c4b4;
+    border-radius: 6px;
+    resize: vertical;
+    min-height: 200px;
+    font-family: inherit;
+    font-size: 0.95em;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+#editResponses:focus {
+    border-color: #8b5a2b;
+    box-shadow: 0 0 0 3px rgba(139, 90, 43, 0.2); /* Shadow sedikit diperkuat */
+    outline: none;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px; /* Gap sedikit diperbesar */
+    margin-top: 20px; /* Margin sedikit ditambah */
+}
+
+.cancel-btn {
+    padding: 12px 24px; /* Sedikit diperbesar */
+    background: #e0d6cc;
+    color: #5c3a21;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.cancel-btn:hover {
+    background: #d4c4b4;
+    transform: translateY(-1px); /* Efek subtle saat hover */
+}
+
+.update-btn {
+    padding: 12px 24px; /* Sedikit diperbesar */
+    background: linear-gradient(135deg, #8b5a2b, #6b4a2a);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.update-btn:hover {
+    background: linear-gradient(135deg, #9d6a3b, #7b5a3a);
+    transform: translateY(-1px); /* Efek subtle saat hover */
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .admin-container {
+        width: 95%;
+        padding: 15px;
+    }
+    
+    .modal-content {
+        width: 90%;
+        padding: 20px;
+    }
+    
+    #intentsTable th, #intentsTable td {
+        padding: 10px 8px;
+        font-size: 0.85em; /* Sedikit diperbesar */
+    }
+    
+    #editResponses {
+        min-height: 150px;
+    }
+    
+    .form-actions {
+        flex-direction: column; /* Ditambahkan untuk tata letak lebih baik */
+        gap: 10px;
+    }
+    
+    .cancel-btn, .update-btn {
+        width: 100%; /* Tombol penuh pada layar kecil */
+    }
+}
+/* Gaya dasar untuk tombol */
+.control-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #007bff; /* biru default */
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Efek saat hover */
+.control-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Warna khusus untuk tombol matakuliah-btn */
+.matakuliah-btn {
+    background-color: #28a745; /* hijau */
+}
+
+.matakuliah-btn:hover {
+    background-color: #1e7e34;
+}
